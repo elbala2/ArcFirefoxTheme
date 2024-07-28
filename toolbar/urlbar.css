@@ -11,7 +11,6 @@
   --identity-box-margin-inline: 6px !important;
   --uc-urlbar-icon-inline-padding: calc(var(--uc-toolbarbutton-inner-inline-padding));
   --uc-urlbar-inline-padding: 6px;
-  --uc-urlbar-block-padding: 6px;
   --uc-urlbar-shadow: 0 0 0px rgb(0 0 0 / .1);
    --urlbarView-rich-suggestion-default-icon-size: 32px !important;
 
@@ -46,7 +45,7 @@
   }
 
   /* Appearance when the URL bar is expanded. */
-  #urlbar:is([open], [usertyping][focused]) & {
+  #urlbar[open] & {
     border-radius: 8px !important;
     border-color: transparent !important;
     outline: 0px solid var(--arrowpanel-border-color) !important;
@@ -65,9 +64,7 @@
 
 #urlbar #urlbar-input {text-align: center !important}
 #urlbar-background {background: transparent !important;}
-
-#nav-bar[urlbar-exceeds-toolbar-bounds="true"] #urlbar-background {background: var(--arrowpanel-background) !important;}
-#urlbar[focused=""] > #urlbar-background {background: var(--arrowpanel-background) !important;}
+#urlbar[focused="true"] > #urlbar-background {background: var(--arrowpanel-background) !important;}
 
 /* URL bar suggestions container. */
 .urlbarView {
