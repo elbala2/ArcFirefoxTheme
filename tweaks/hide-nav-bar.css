@@ -1,26 +1,35 @@
 @media (-moz-bool-pref: "uc.tweak.hide-navbar") {
-  #navigator-toolbox {
-    min-height: 10px;
+  /* Only hide the tabs toolbar if one of the following sidebar extensions is
+  * active: */
+  /* Sidebery */
+  :root:not([customizing]):has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([hidden])),
+  /* Tree Style Tab */
+  :root:not([customizing]):has(#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:not([hidden])),
+  /* Tab Center Reborn */
+  :root:not([customizing]):has(#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:not([hidden])) {
+    #navigator-toolbox {
+      min-height: 10px;
+    }
+    
+    #nav-bar {
+      width: 100%;
+      top: 0%;
+      left: 0%;
+    
+      opacity: 0;
+      height: 15px;
+      position: absolute !important;
+    
+      transition: opacity 0.15s, heigth 0.15s !important;
+    }
+    
+    #navigator-toolbox:hover #nav-bar,
+    #navigator-toolbox #nav-bar:has(#urlbar:is([breakout][breakout-extend])) {
+      opacity: 1;
+      height: auto !important;
+      position: relative !important;
+    }
+    
+    #navigator-toolbox:not(:hover) .titlebar-buttonbox-container{ display:none }
   }
-  
-  #nav-bar {
-    width: 100%;
-    top: 0%;
-    left: 0%;
-  
-    opacity: 0;
-    height: 15px;
-    position: absolute !important;
-  
-    transition: opacity 0.15s, heigth 0.15s !important;
-  }
-  
-  #navigator-toolbox:hover #nav-bar,
-  #navigator-toolbox #nav-bar:has(#urlbar:is([breakout][breakout-extend])) {
-    opacity: 1;
-    height: auto !important;
-    position: relative !important;
-  }
-  
-  #navigator-toolbox:not(:hover) .titlebar-buttonbox-container{ display:none }
 }
